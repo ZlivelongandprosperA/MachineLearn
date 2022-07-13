@@ -1,0 +1,25 @@
+from sklearn.model selection import train test_split
+
+# split data into training and test sets
+train, test = train test_split(df[col + ['target']],
+test _size = 0.3)
+
+# Fit the SVM model
+clf = svm.SVC()
+clf.fit(train[col], train['target']))
+
+
+
+
+
+# Check the confusion matrix and score  for training data
+pred = clf.predict (train[col])
+print (confusion matrix(y_true=train['target'], y_pred=pred, labels=[1, 0]))
+print (clf.score(train[col],train['target']))
+
+
+
+# Check the confusion matrix and score for testing data
+pred = clf.predict(test[col])
+print(confusion matrix(y_true=test['target'], y_pred=pred, labels=[1, 0]))
+print(clf.score(test[col],test['target']))

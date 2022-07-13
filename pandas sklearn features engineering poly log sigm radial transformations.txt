@@ -1,0 +1,21 @@
+from sklearn.preprocessing import PolynomialFeatures
+
+df = pd.DataFrame({'a':np.random.rand(5),'b':np.random.rand(5)})
+
+cube = PolynomialFeatures (degree=3)
+cube features = quadratic.fit transform(df)
+
+df cube = pd.DataFrame(cube features,columns=cols)
+df cube
+
+# When overfittig consider:
+# - lower degree of polynomial
+# - log transformation
+# - sigmoid transformation
+# 
+
+# Radial basis function - widely used in Support Vector Machine as a kernel 
+# and in Radial Basis Neural Network (RBNNs)
+# Gaussian RBF is the most common RBF used
+# 
+# 

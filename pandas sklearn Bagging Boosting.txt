@@ -1,0 +1,9 @@
+# Low Bias, high Variance - Bagging
+# sklearn.ensemble.BaggingClassifier
+# sklearn.ensemble.BaggingRegressor
+
+# High Bias - Boosting (often wins Kaggle competitions) 
+# sklearn.ensemble.AdaBoostClassifier
+# sklearn.ensemble.AdaBoostRegressor
+# sklearn.ensemble.GradientBoostingClassifier
+# or XGBoost library

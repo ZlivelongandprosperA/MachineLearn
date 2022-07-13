@@ -1,0 +1,39 @@
+import pandas as pd
+from sklearn.datasets import load_breast_cancer
+
+dataset = load_breast_cancer()
+
+cols = ["v10", "vll", "v12", "v13", "vl4", "V15", "vL6"', "v17", "v1a", "v19",
+"V20", "V21", "V22", "V23", "V24", "V2", "V26", "V27", "V2B", "V29",
+"V30", "V31", "V32", "V33", "V34", "V35", "V36", "V37", "‘V36", "V39"]
+
+df = pd.DataFrame(dataset['data'],columns = cols)
+
+df['target'] = dataset.target
+
+col = ['V10', 'Vll', 'V12', 'V13', 'V14', 'V15', 'V16', 'V17', 'V18', 'V19']
+
+heatmap = np.corrcoef(df[col].values.T)
+
+fig, ax = plt.subplots(figsize=(15,15))
+im = ax.imshow(heatmap, cmap='PiYG', vmin=-1)
+
+fig.colorbar (im)
+ax.grid(False)
+
+[[ax.text(j, i, round(heatmap[i, j],2), ha="center", va="center", color="w")
+for j in range(len(heatmap))] for i in range(len(heatmap))]
+
+ax.set_xticks(np.arange(len(col)))
+ax.set_yticks(np.arange(len(col)))
+ax.set_xticklabels(col)
+ax.set_yticklabels(col)
+
+plt.show()
+
+
+##################################################################################
+
+mport seaborn as sns
+
+sns.heatmap(heatmap, yticklabels=col, xticklabels=col, cmap='PiYG', annot=True)

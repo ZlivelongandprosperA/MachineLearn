@@ -1,0 +1,10 @@
+# Ridge regression model: Linear regression with L2
+# Sklearn: sklearn.linear model .Ridge
+
+# Lasso regression model: Linear regression with L1
+# Sklearn: sklearn.linear model.Lasso
+
+# Elastic Net regression model: Linear regression with both
+# Sklearn: sklearn.linear model.ElasticNet
+
+# The strength of regularization c = 1/alpha

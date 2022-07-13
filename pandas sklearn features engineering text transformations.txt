@@ -1,0 +1,49 @@
+# Bag of words
+#
+# Transformations:
+# - Count Vectorizer - per-word value is count (also called 'term frequency') 
+#   includes lowercasing and tokenization on white space and punctuation
+#   scikit-learn: sklearn.feature_extraction.text.CountVectorizer
+#
+# - TfidfVectorizer - Term-Frequency times Inverse Document-Frequency
+#   Per-word value is downweighted for terms common across documents (e.g. "the")
+#   scikit-learn: sklearn.feature_extraction.text.TfidfVectorizer
+#
+# - Hashing Vectorizer - stateless mapper from text to term index
+#   scikit_learn: sklearn.feature_extraction.text.HashingVectorizer
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#

@@ -1,0 +1,12 @@
+# Is an unsupervised linear approach to feature extraction
+# Finds patterns based on correlations between features
+# Constructs principal components: orthogonal axes in directions of maximum variance
+
+# scikit-learn: sklearn.decomposition.PCA
+pca = PCA(n_components=2) 
+X_train_pca = pca.fit_transform(X_train_std) 
+lr = LogisticRegression() 
+lr.fit(X_train_pca) 
+
+
+# another method: LDA

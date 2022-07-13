@@ -1,0 +1,35 @@
+import pandas as pd
+from sklearn.datasets import load_breast_cancer
+
+dataset = load_breast_cancer()
+
+cols = ["v10", "vll", "v12", "v13", "vl4", "V15", "vL6"', "v17", "v1a", "v19",
+"V20", "V21", "V22", "V23", "V24", "V2", "V26", "V27", "V2B", "V29",
+"V30", "V31", "V32", "V33", "V34", "V35", "V36", "V37", "‘V36", "V39"]
+
+df = pd.DataFrame(dataset['data'],columns = cols)
+
+df['target'] = dataset.target
+
+malignant = df[['V11l', 'V12']][df['target'] == 0]
+benign = df[['V11', ‘V12']][df['target'] == 1]
+
+plt.scatter(benign['V11'],
+	benign['V12'],
+	s=50,
+	c='red',
+	marker='v',
+	label='Malignant')
+
+plt.scatter(malignant['V11'],
+	malignant[('V12'],
+	s=50,
+	c='blue',
+	marker='o',
+	label='Benign')
+
+plt.xlabel('V11')
+plt.ylabel('V12')
+plt.legend()
+plt.grid()
+plt.show()

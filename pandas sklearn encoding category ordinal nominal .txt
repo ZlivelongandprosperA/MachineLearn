@@ -1,0 +1,48 @@
+import pandas as pd
+df = pd.DataFrame([[ ‘house’ ,3,2572, 'S',1372000,'Y'],
+[ ‘apartment’ ,2,1386, 'N',699000, 'N'],
+[ ‘house’ ,3,1932,'L',800000, 'N'],
+[ ‘house’ ,1,851, 'M',451000, 'Y'],
+[ ‘apartment’ ,1,600, 'N',325000, 'N']])
+df.columns = ['‘type', ‘bedrooms’, ‘area’, 'garden_size', ‘price’, 'loan_approved']
+df
+
+# encode ordinal categories (e.x small, medium, large)
+mapping = dict({'N':0, 'S':5, 'M':10, 'L':20})
+df['num_garden_size'] = df['garden_size'].map(mapping)
+df
+
+# encode target labels (binary problem, example: fair/fraud to 0/1)
+from sklearn.preprocessing import LabelEncoder
+loan_enc = LabelEncoder()
+y = group_enc.fit_transform(df['loan_approved'])
+y
+
+
+# Encode nominal values (like e.x. blue, green, orange) which do not have order
+# In nominal encoding you replace one feature (like color) with a vectors as long 
+# as the number of categories you have, like [[1 0 0] [0 1 0] [0 1 0] [0 0 1] [0 1 0]
+# If the number of categories is long you can group them based on similarities 
+# or create hierachy structure
+
+from sklearn.preprocessing import OneHotEncoder
+df = pd.DataFrame({"Fruits":["Apple", "Banana", "Banana", "Mango", "Banana" ] })
+type_labelenc = LabelEncoder()
+num_type = group _enc.fit_transform(df["Fruits"])
+print(num_type)
+type_enc = OneHotEncoder()
+type_enc.fit(num_type.reshape(-1,1))
+print (type_enc.transform(num_type.reshape(-1,1)).toarray())
+
+
+#another way to encode numerical features
+
+import pandas as pd
+df = pd.DataFrame({"Fruits":["Apple", "Banana", "Banana", "Mango", "Banana"]})
+pandas.get_dummies(df)
+
+
+
+
+
+

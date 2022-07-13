@@ -1,0 +1,43 @@
+import pandas as pd
+from sklearn.datasets import load_breast_cancer
+
+dataset = load_breast_cancer()
+
+cols = ["v10", "vll", "v12", "v13", "vl4", "V15", "vL6"', "v17", "v1a", "v19",
+"V20", "V21", "V22", "V23", "V24", "V2", "V26", "V27", "V2B", "V29",
+"V30", "V31", "V32", "V33", "V34", "V35", "V36", "V37", "‘V36", "V39"]
+
+df = pd.DataFrame(dataset['data'],columns = cols)
+
+df['target'] = dataset.target
+
+# show first a few rows
+df -head()
+
+# show datatype for cach column
+df.info()
+
+# show summary statistics for each column
+df.describe()
+
+# check the target variable properties
+df['target').value_counts()
+
+# draw density plot
+df['V11'].plot.kde()
+plt.show()
+
+# draw histogram
+df['V11'].plot.hist()
+plt.show()
+
+# draw box plot
+df.boxplot(['V11'])
+plt.show()
+
+# draw scatter plot
+df.plot.scatter(x='V11', y='V12')
+plt.show()
+
+# draw scatter plot matrix
+pd.scatter_matrix(df[['V11', 'V21', 'V31']], figsize=(15,15))

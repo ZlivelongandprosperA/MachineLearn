@@ -1,0 +1,5 @@
+# filter on failed predictions and manually look for patterns
+# this helps pivot on target, key attributes and failure type, build histograms of error counts 
+
+pred = clf.predict(train)[col])
+error_df = test[pred != test['target']

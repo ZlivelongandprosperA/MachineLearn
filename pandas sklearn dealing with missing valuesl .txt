@@ -1,0 +1,44 @@
+import pandas as pd
+df = pd.DataFrame({"Fruits":["Apple", "Banana", "Banana", "Mango", "Banana"],
+"Number":[5, None, 3, None, 1]})
+
+# check how many missing values for each column:
+df.isnull().sum()
+
+# check how many missing values for each row:
+df.isnull().sum(axis = 1)
+
+
+#drop the columns with NULL values
+df.dropna(axis = 1)
+
+#drop the rows with NULL values
+df.dropna()
+
+#more complicated
+df.dropna(how='all')
+df.dropna(thresh=4)
+df.dropna(subset=['Fruits'])
+
+
+# Impute/replace missing values
+from sklearn.preprocessing import Imputer
+import numpy as np
+arr = np.array([[5,3,2,2],[3,None,1,9],[5,2,7,None]])
+
+imputer = Imputer(strategy='mean')
+imp = imputer.fit(arr)
+imputer.transform(arr)
+
+
+
+# More advanced methods
+# MICE - multiple imputation by chained equations
+# sklearn.impute.MICEImputer
+# 
+# Python (not sklearn) fancy impute package
+# KNN impute
+# SoftImpute
+# MICE
+# etc
+# 

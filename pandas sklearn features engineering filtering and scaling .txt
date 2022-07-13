@@ -1,0 +1,48 @@
+#Creating novel features to use as input for ML models using domain and data knowledge
+
+# scikit-learn: sklearn.feature_extraction
+
+# Rules of thumb:
+# 1. use intuition, think what "information would a human use to predict this?"
+# 2. try generating many features first then apply dimensionality reduction if needed
+# 3. Consider transformation of attributes like raise to power (ex. x^2 - multinomial transformations)
+# 4. or combinations of two features, ex. x * y (product of two features is indications of interactions between two features)
+# 5. try not to overthink or include too much manual logic
+
+# FILTERING  SELECTION
+# selecting relevant features to use for model training 
+#
+# in images - remove channels from an image if color is not important
+# in sounds - remove frequencies from audio if the power is less than a threshold
+#
+# Some algortihms are sensitive to features being on different scales, 
+# like e.g. gradient descent and kNN (3, 20500, 112, ...), but decision trees 
+# and random forests aren't sensitive to features on different scales
+# IMPORTANT fit the scalar to training data only, then transform both train and validation data
+#
+# Common choices in sklearn:
+#
+# - mean/variance standarization	sklearn.preprocessing.StandardScaler
+
+from sklearn.preprocessing import StandardScaler
+scale = StandardScaler()
+arr = np.array([[5,3,2,2], [2,3,1,9], [5,2,7,6],dtype=float])
+print(scale.fit_transform(arr))
+print(scale.scale_)
+
+# - MinMax scaling (min=0, max=1, robust to small standard deviation :) )
+
+from sklearn.preprocessing import MinMaxScaler
+scale = MinMaxScaler()
+arr = np.array([[5,3,2,2], [2,3,1,9], [5,2,7,6],dtype=float])
+print(scale.fit_transform(arr))
+print(scale.scale_)
+print(scale.min_)
+
+# - MaxAbs scaling - divide by max value of the feature	sklearn.preprocessing.MaxAbsScaler
+# - Robust scaling - use 25 and 75 quantilies, there will be robust outliers 	sklearn.preprocessing.RobustScaler
+# - Normalizer, used wildly in text analysis, works on single  row, not columns
+#
+#
+#
+#
